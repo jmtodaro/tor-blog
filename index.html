@@ -2,7 +2,6 @@
 layout: default
 ---
 
-
 <!-- Pages with side column need a 'maincol' class -->
 <div class="home maincol">
 
@@ -25,7 +24,6 @@ layout: default
 	  <div class="post-footer">
 	      <a class="post-blog" href="{{ post.author | prepend: site.baseurl }}">{{ post.author }}'s Blog</a>
 
-<!--	      <a class="post-cmtlink" href="{{ post.url | prepend: site.baseurl }}/#disqus_thread">Leave a comment</a> -->
 {% if post.comments == "disabled" %}
 {% else %}
 	      <a class="post-cmtlink" href="{{ post.url | prepend: site.baseurl }}#comments">Leave a comment</a>
@@ -58,17 +56,17 @@ layout: default
       {% assign lastPage = paginator.total_pages | minus: pageLimit %}
 
       {% if paginator.total_pages <= pageLimit %}
-	  {% assign pageOffsetLimit = 1 %}
+          {% assign pageOffsetLimit = 1 %}
       {% elsif paginator.page == 1 %}
-	  {% assign pageOffsetLimit = paginator.page %}
+      	  {% assign pageOffsetLimit = paginator.page %}
       {% elsif paginator.page <= pageOffset %}
-	  {% assign firstPageLimit = paginator.page | minus: 1 %}
-	  {% assign pageOffsetLimit = paginator.page | minus: firstPageLimit %}
+      	  {% assign firstPageLimit = paginator.page | minus: 1 %}
+      	  {% assign pageOffsetLimit = paginator.page | minus: firstPageLimit %}
       {% elsif paginator.page > lastPage %}
-	  {% assign lastPageLimit = paginator.total_pages | minus: pageLimit %}
-	  {% assign pageOffsetLimit = lastPageLimit | plus: 1 %}
+      	  {% assign lastPageLimit = paginator.total_pages | minus: pageLimit %}
+      	  {% assign pageOffsetLimit = lastPageLimit | plus: 1 %}
       {% else %}
-	  {% assign pageOffsetLimit = paginator.page | minus: pageOffset %}
+      	  {% assign pageOffsetLimit = paginator.page | minus: pageOffset %}
       {% endif %}
 
       {% for page in (pageOffsetLimit..paginator.total_pages) limit: pageLimit %}
