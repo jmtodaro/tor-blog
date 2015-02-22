@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+    <div id="archive-container"><dl><dt>Date</dt><dd>
+      <ul id="archive-years">
+
+        {% assign pageYear = page.date | date: "%Y" %}
+        {% assign pageMonth = page.date | date: "%m" %}
+
+        {% assign currentYear = site.time | date: "%Y" %}
+        {% assign currentMonth = site.time | date: "%m" %}
+
+        {% assign testMonth = page.date | date: "%M" %}
+
+        {% for post in site.posts %}
+            {% assign postYear = post.date | date: "%Y" %}
+
+            {% if postYear <= currentYear %}
+                {% if postYear != stashYear %}
+                    {% if postYear == pageYear %}
+                        <li>{{ postYear }}</li>
+                    {% else %}
+                        <li><a href="/archive/{{ postYear }}">{{ postYear }}</a></li>
+                    {% endif %}
+
+                    {% assign stashYear = postYear %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+      </ul>
+
+      <ul id="archive-months">
+
+          {% if page.type == "year" %}
+              <li>All</li>
+          {% else %}
+              <li><a href="/archive/{{ pageYear }}">All</a></li>
+          {% endif %}
+
+          {% for post in site.posts %}
+              {% assign postYear = post.date | date: "%Y" %}
+              {% assign postMonth = post.date | date: "%m" %}
+
+              {% if postYear == pageYear %}
+                  {% if postMonth != stashMonth %}
+                      {% if postMonth == pageMonth %}
+                          {% if page.type != "year" %}
+                              <li>{{ post.date | date: "%b" }}</li>
+                          {% else %}
+                              <li><a href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a></li>
+                          {% endif %}
+                      {% else %}
+                          <li><a href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a></li>
+                      {% endif %}
+
+                      {% assign stashMonth = postMonth %}
+                  {% endif %}
+              {% endif %}
+          {% endfor %}
+
+      </ul>
+
+    </dd></dl></div>
+
+  </body>
+</html>

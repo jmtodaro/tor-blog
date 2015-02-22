@@ -5,6 +5,9 @@ layout: default
 <!-- Pages with side column need a 'maincol' class -->
 <div class="post maincol">
 
+<!-- Include archive navigation -->
+{% include archive-nav.html %}
+
 <h1>Archive of posts from {{ page.date | date: "%B %-d, %Y" }}</h1>
 
 <ul class="posts">
@@ -20,6 +23,3 @@ layout: default
 
 <!-- Include the side column -->
 {% include sidecol.html %}
-
-
-
