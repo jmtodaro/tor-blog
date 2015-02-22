@@ -40,7 +40,7 @@
 <!--    <li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 55 }}%"> -->
 {% for tag in site.tags limit: 25 %}
     <li style="font-size: {{ tag | last | size | times: 400 | divided_by: site.tags.size | plus: 75 }}%">
-        <span><a href="{{site.baseurl}}/tag/{{ tag | first | slugify }}/">
+        <span><a href="{{site.baseurl}}/archive/tag/{{ tag | first | slugify }}/">
             {{ tag | first }}
         </a></span>
     </li>
