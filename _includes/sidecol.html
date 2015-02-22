@@ -20,7 +20,7 @@
 	</ul>
 	<span><a href="{{site.baseurl}}/events">full calendar &raquo;</a></span>
     </div>
-    
+
 <!-- RECENT BLOG POSTS -->
     <div class ="sidebox greenbox">
 	<h2>Recent Blog Posts</h2>
@@ -31,7 +31,7 @@
 	</ul>
 	<span><a href="{{site.baseurl}}/archive">more &raquo;</a></span>
     </div>
-    
+
 <!-- TAG CLOUD -->
     <div class ="tagbox orangebox">
 	<h2>Blog Tag Cloud</h2>
@@ -40,7 +40,7 @@
 <!--    <li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 55 }}%"> -->
 {% for tag in site.tags limit: 25 %}
     <li style="font-size: {{ tag | last | size | times: 400 | divided_by: site.tags.size | plus: 75 }}%">
-        <span><a href="{{site.baseurl}}/tag/{{ tag | first | slugize }}/">
+        <span><a href="{{site.baseurl}}/tag/{{ tag | first | slugify }}/">
             {{ tag | first }}
         </a></span>
     </li>
@@ -51,4 +51,4 @@
 
 </div>
 
-<div style="clear: both;"></div>  
+<div style="clear: both;"></div>

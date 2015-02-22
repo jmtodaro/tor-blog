@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'jekyll-tagging'
+gem 'jekyll-watch'
 gem 'jekyll-archives'

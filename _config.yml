@@ -22,18 +22,14 @@ sass:
   sass_dir: _sass
   style: :compressed
 
-tag_page_layout: tag_page
-tag_page_dir: tag
-tag_permalink_style: pretty
-
 jekyll-archives:
   layout: 'archive'
   enabled:
-  - year
-  - month
-  - day
-  - tags
-  - categories
+    - year
+    - month
+    - day
+    - tags
+    - categories
   layouts:
     year: 'archive-year'
     month: 'archive-month'
