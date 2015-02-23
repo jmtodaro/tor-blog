@@ -18,11 +18,18 @@ layout: default
           </span>
 
           <div class="post-description">
-	      {{ post.content }}
+	      {% assign excerptCheck = post.content | split: '<!-- more -->' %}
+
+	      {% if excerptCheck[1] %}
+		  {{ post.content | split: '<!-- more -->' | first }}
+		  <a class="read-more" href="{{ post.url }}">Read more >></a>
+	      {% else %}
+		  {{ post.content }}
+	      {% endif %}
 	  </div>
 
 	  <div class="post-footer">
-	      <a class="post-blog" href="{{ post.author | prepend: site.baseurl }}">{{ post.author }}'s Blog</a>
+	      <a class="post-blog" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}'s Blog</a>
 
 {% if post.comments == "disabled" %}
 {% else %}
