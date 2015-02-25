@@ -1,9 +1,10 @@
 ---
 layout: page
+search_omit: true
 ---
 
 <header class="post-header">
-    <h2>{{ page.title }}'s Blog</h2>
+    <h2>{{ page.title }}'s blog</h2>
 </header>
 
 <div class="author">
@@ -11,16 +12,16 @@ layout: page
 
         {% assign index = true %}
 
-        {% for post in site.posts %}
+        {% for post in site.categories.blog %}
             {% if post.author contains page.author %}
 
                 <li>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                     <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a> in
 
-                        {% for tag in post.tags %}
-                            <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
-                        {% endfor %}
+                            {% for tag in post.tags %}
+                                <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
+                            {% endfor %}
 
                     </span>
 
