@@ -4,9 +4,9 @@ title: Events
 search_omit: true
 ---
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/moment.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/fullcalendar.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/moment.js"></script>
+<script src="{{ site.baseurl }}/assets/js/fullcalendar.js"></script>
 
 <script>
   $(document).ready(function() {
@@ -47,8 +47,8 @@ search_omit: true
 
         {% for post in site.categories.event %}
 
-            <ul class="post-content event">
-                <li>
+            <ul class="post-content">
+                <li class="event">
                 <header class="post-header">
                     <h2 class="eventtitle"> <a class="post-link titleurl" href="{{ post.url }}">{{ post.title | xml_escape }}</a></h2>
                     <p class="post-meta">
