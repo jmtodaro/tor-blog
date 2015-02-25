@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Events
 ---
 
@@ -42,26 +42,32 @@ title: Events
 
 <!-- A wrapper for all the events -->
 <div class="posts">
+    <div id="home maincol">
 
-  <h1 class="content-subhead">Events</h1>
-  <div id="home">
-    {% for post in site.categories.event %}
-      <section class="post event">
-        <header class="post-header">
-          <h2 class="post-title eventtitle"> <a class="titleurl" href="{{ post.url }}">{{ post.title | xml_escape }}</a></h2>
-          <p class="post-meta">
-              <span class="startdate" data-startdate="{{ post.startdate }}">{{ post.startdate | date: "%-d %B %Y" }}</span>
-              {% if post.enddate %}
-                to <span class="enddate" data-enddate="{{ post.enddate }}">{{ post.enddate | date: "%-d %B %Y" }}</span>
-              {% endif %}
-          </p>
-        </header>
-        <div class="post-description">
-          {{ post.content }}
-        </div>
-      </section>
-    {% endfor %}
+        {% for post in site.categories.event %}
 
-  </div>
+            <ul class="post-content event">
+                <li>
+                <header class="post-header">
+                    <h2 class="eventtitle"> <a class="post-link titleurl" href="{{ post.url }}">{{ post.title | xml_escape }}</a></h2>
+                    <p class="post-meta">
+                        <span class="startdate" data-startdate="{{ post.startdate }}">{{ post.startdate | date: "%-d %B %Y" }}</span>
 
+                        {% if post.enddate %}
+                            to <span class="enddate" data-enddate="{{ post.enddate }}">{{ post.enddate | date: "%-d %B %Y" }}</span>
+                        {% endif %}
+
+                    </p>
+                </header>
+                <div class="post-description">
+
+                  {{ post.content }}
+
+                </div>
+              </li>
+
+        {% endfor %}
+
+        </ul>
+    </div>
 </div>

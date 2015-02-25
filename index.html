@@ -1,108 +1,116 @@
 ---
-layout: default
+layout: page
 ---
 
-<!-- Pages with side column need a 'maincol' class -->
-<div class="home maincol">
-
     <ul class="post-content">
-	{% for post in paginator.posts %}
-	<li>
-	  <h2>
-	    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-	  </h2>
-	  <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a> in
-	      {% for tag in post.tags %}
-		  <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
+
+	     {% for post in paginator.posts %}
+
+	      <li>
+	         <h2>
+	             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+           </h2>
+           <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a> in
+
+              {% for tag in post.tags %}
+                  <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
               {% endfor %}
-          </span>
 
-          <div class="post-description">
-	      {% assign excerptCheck = post.content | split: '<!-- more -->' %}
+           </span>
+           <div class="post-description">
 
-	      {% if excerptCheck[1] %}
-		  {{ post.content | split: '<!-- more -->' | first }}
-		  <a class="read-more" href="{{ post.url }}">Read more >></a>
-	      {% else %}
-		  {{ post.content }}
-	      {% endif %}
-	  </div>
+               {% assign excerptCheck = post.content | split: '<!-- more -->' %}
 
-	  <div class="post-footer">
-	      <a class="post-blog" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}'s Blog</a>
+               {% if excerptCheck[1] %}
+                    {{ post.content | split: '<!-- more -->' | first }}
+                    <a class="read-more" href="{{ post.url }}">Read more &raquo;</a>
+               {% else %}
+                    {{ post.content }}
+               {% endif %}
 
-{% if post.comments == "disabled" %}
-{% else %}
-	      <a class="post-cmtlink" href="{{ post.url | prepend: site.baseurl }}#comments">Leave a comment</a>
-{% endif %}
-	  </div>
-	  <br />
-	  <br />
-	</li>
-      {% endfor %}
+            </div>
+            <div class="post-footer">
+                <a class="post-blog" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}'s Blog</a>
+
+                {% if post.comments == "disabled" %}
+                {% else %}
+                    <a class="post-cmtlink" href="{{ post.url | prepend: site.baseurl }}#comments">Leave a comment</a>
+                {% endif %}
+
+           </div>
+	         <br />
+	         <br />
+	      </li>
+
+        {% endfor %}
+
     </ul>
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-
     <!-- Pagination links -->
     {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Newest</a>
-      &nbsp;
 
-      {% if paginator.previous_page %}
-	<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% else %}
-	<span>&laquo; Prev</span>
-      {% endif %}
-      &nbsp;
+        <div class="pagination">
+            <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Newest</a>
+            &nbsp;
 
-      <!-- Pagination vars -->
-      {% assign pageLimit = 11 %}
-      {% assign pageOffset = 5 %}
-      {% assign lastPage = paginator.total_pages | minus: pageLimit %}
+            {% if paginator.previous_page %}
+    	           <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+            {% else %}
+    	           <span>&laquo; Prev</span>
+            {% endif %}
 
-      {% if paginator.total_pages <= pageLimit %}
-          {% assign pageOffsetLimit = 1 %}
-      {% elsif paginator.page == 1 %}
-      	  {% assign pageOffsetLimit = paginator.page %}
-      {% elsif paginator.page <= pageOffset %}
-      	  {% assign firstPageLimit = paginator.page | minus: 1 %}
-      	  {% assign pageOffsetLimit = paginator.page | minus: firstPageLimit %}
-      {% elsif paginator.page > lastPage %}
-      	  {% assign lastPageLimit = paginator.total_pages | minus: pageLimit %}
-      	  {% assign pageOffsetLimit = lastPageLimit | plus: 1 %}
-      {% else %}
-      	  {% assign pageOffsetLimit = paginator.page | minus: pageOffset %}
-      {% endif %}
+            &nbsp;
 
-      {% for page in (pageOffsetLimit..paginator.total_pages) limit: pageLimit %}
+            <!-- Pagination vars -->
+            {% assign pageLimit = 11 %}
+            {% assign pageOffset = 5 %}
+            {% assign lastPage = paginator.total_pages | minus: pageLimit %}
 
-	{% if page == paginator.page %}
-	  {{ page }}
+            {% if paginator.total_pages <= pageLimit %}
+                {% assign pageOffsetLimit = 1 %}
 
-	{% elsif page == 1 %}
-	  <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+            {% elsif paginator.page == 1 %}
+            	  {% assign pageOffsetLimit = paginator.page %}
 
-	{% else %}
-	  <a href="/{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-	{% endif %}
-      {% endfor %}
-      &nbsp;
+            {% elsif paginator.page <= pageOffset %}
+            	  {% assign firstPageLimit = paginator.page | minus: 1 %}
+            	  {% assign pageOffsetLimit = paginator.page | minus: firstPageLimit %}
 
-      {% if paginator.next_page %}
-	<a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% else %}
-	<span>Next &raquo;</span>
-      {% endif %}
-      &nbsp;
-      <a href="/{{ site.paginate_path  | replace: '//', '/' | replace: ':num', paginator.total_pages }}">Oldest &raquo;</a>
-    </div>
+            {% elsif paginator.page > lastPage %}
+            	  {% assign lastPageLimit = paginator.total_pages | minus: pageLimit %}
+            	  {% assign pageOffsetLimit = lastPageLimit | plus: 1 %}
+
+            {% else %}
+            	  {% assign pageOffsetLimit = paginator.page | minus: pageOffset %}
+            {% endif %}
+
+            {% for page in (pageOffsetLimit..paginator.total_pages) limit: pageLimit %}
+
+              	{% if page == paginator.page %}
+              	   {{ page }}
+
+              	{% elsif page == 1 %}
+              	   <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+
+              	{% else %}
+              	   <a href="/{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+              	{% endif %}
+
+            {% endfor %}
+
+            &nbsp;
+
+            {% if paginator.next_page %}
+    	           <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+            {% else %}
+    	           <span>Next &raquo;</span>
+            {% endif %}
+
+            &nbsp;
+            <a href="/{{ site.paginate_path  | replace: '//', '/' | replace: ':num', paginator.total_pages }}">Oldest &raquo;</a>
+        </div>
+
     {% endif %}
 
     <br />
-
-  </div>
-
-<!-- Include the side column -->
-{% include sidecol.html %}
