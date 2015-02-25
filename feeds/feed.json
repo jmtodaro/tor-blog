@@ -8,8 +8,9 @@ layout: null
             "title": {{post.title | json}},
             "content": {{post.content | markdownify | strip_html | json}},
             "link": "{{ site.url }}{{ post.url }}",
-            "date": {{ post.date | json }},
-            "excerpt": {{ post.snippet | json }}
+            "date": {{ post.date | date: "%b %-d, %Y" | json }},
+            "author": {{post.author | json}},
+            "excerpt": {{ post.excerpt | json }}
         }
     {%endif%}
 {% endfor %}
@@ -20,7 +21,8 @@ layout: null
             "title": {{page.title | json }},
             "content": {{page.content | strip_html | strip_newlines | json}},
             "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
-            "date": {{ page.date | json }},
+            "date": {{ page.date | date: "%b %-d, %Y" | json }},
+            "author": {{page.author | json}},
             "excerpt": {{ page.description | json }}
         }
     {%endif%}

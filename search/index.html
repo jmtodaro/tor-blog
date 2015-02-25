@@ -1,34 +1,35 @@
 ---
-layout: default
+layout: page
 title: Search
 search_omit: true
 ---
 
-  <h1>Search</h1>
-  
+  <h2>Search</h2>
+
   <!-- Search form -->
   <form method="get" action="/search" data-search-form>
-    <label for="q">Search term</label>
-    <input type="search" name="q" id="q" placeholder="Enter search term" data-search-input />
-    <input type="submit" value="Search" />
+      <label for="q">Search term</label>
+      <input type="search" name="q" id="q" placeholder="Enter search term" data-search-input />
+      <input type="submit" value="Search" />
   </form>
 
   <!-- Search results placeholder -->
   <p data-search-found>
     <span data-search-found-count></span> result(s) found for &ldquo;<span data-search-found-term></span>&rdquo;.
   </p>
-  <div data-search-results></div>
+  <div>
+  <ul class="post-content" data-search-results></ul>
 
-
-
-  <!-- Search result template -->
-  <script type="text/x-template" id="search-result">
-    <div>
-      <h1><a href="##Url##">##Title##</a></h1>
-      <h2><a href="##Url##">##Date##</a></h2>
-      <a href="##Url##">Read &ldquo;##Title##&rdquo;</a>
-    </div>
-  </script>
+        <!-- Search result template -->
+        <script type="text/x-template" id="search-result">
+            <li>
+                <a class="post-link" href="##Url##">##Title##</a>
+                <span class="post-meta">Posted ##Date## by <a class="post-author" href="{{ site.baseurl }}/authors/##Author##">##Author##</a></span>
+                <p>##Excerpt##</p>
+                <a class="read-more" href="##Url##">Read more &raquo;</a>
+            </li>
+        </script>
+</div>
 
   <!-- jQuery - required but can be moved to the <head> -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
