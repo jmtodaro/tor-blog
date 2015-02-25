@@ -1,25 +1,29 @@
 ---
-layout: default
+layout: page
 ---
-
-<!-- Pages with side column need a 'maincol' class -->
-<div class="post maincol">
 
 <!-- Include archive navigation -->
 {% include archive-nav.html %}
 
-<h1>Archive of posts from {{ page.date | date: "%B %-d, %Y" }}</h1>
+<ul class="post-content">
 
-<ul class="posts">
-{% for post in page.posts %}
-  <li>
-    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
+    {% for post in page.posts %}
+
+        <li>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a> in
+
+                {% for tag in post.tags %}
+                    <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+
+            </span>
+
+            {{ post.excerpt }}
+
+            <a class="read-more" href="{{ post.url }}">Read more &raquo;</a>
+        </li>
+
+    {% endfor %}
+
 </ul>
-
-</div>
-
-<!-- Include the side column -->
-{% include sidecol.html %}

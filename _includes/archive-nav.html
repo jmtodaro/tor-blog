@@ -1,72 +1,69 @@
-<html>
-  <head>
-    <title></title>
-    <meta content="">
-    <style></style>
-  </head>
-  <body>
+<nav class="archive-years">
 
-    <div id="archive-container"><dl><dt>Date</dt><dd>
-      <ul id="archive-years">
+    {% if page.type %}
+        <a class="archive-year" href="/archive">All</a>
+    {% else %}
+        <a class="archive-year-active" href="/archive">All</a>
+    {% endif %}
 
-        {% assign pageYear = page.date | date: "%Y" %}
-        {% assign pageMonth = page.date | date: "%m" %}
+    {% assign pageYear = page.date | date: "%Y" %}
+    {% assign pageMonth = page.date | date: "%m" %}
+    {% assign currentYear = site.time | date: "%Y" %}
+    {% assign currentMonth = site.time | date: "%m" %}
+    {% assign testMonth = page.date | date: "%M" %}
 
-        {% assign currentYear = site.time | date: "%Y" %}
-        {% assign currentMonth = site.time | date: "%m" %}
+    {% for post in site.posts %}
+        {% assign postYear = post.date | date: "%Y" %}
 
-        {% assign testMonth = page.date | date: "%M" %}
+        {% if postYear <= currentYear %}
+            {% if postYear != stashYear %}
 
-        {% for post in site.posts %}
+                {% if postYear == pageYear %}
+                    <a class="archive-year-active" href="/archive">{{ postYear }}</a>
+                {% else %}
+                    <a class="archive-year" href="/archive/{{ postYear }}">{{ postYear }}</a>
+                {% endif %}
+
+                {% assign stashYear = postYear %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+</nav>
+
+{% if page.type %}
+
+    <nav class="archive-months">
+
+        {% if page.type == "year" %}
+            <a class="archive-month-active"  href="/archive">All</a>
+        {% else %}
+            <a class="archive-month" href="/archive/{{ pageYear }}">All</a>
+        {% endif %}
+
+        {% for post in site.posts reversed %}
             {% assign postYear = post.date | date: "%Y" %}
+            {% assign postMonth = post.date | date: "%m" %}
 
-            {% if postYear <= currentYear %}
-                {% if postYear != stashYear %}
-                    {% if postYear == pageYear %}
-                        <li>{{ postYear }}</li>
+            {% if postYear == pageYear %}
+                {% if postMonth != stashMonth %}
+                    {% if postMonth == pageMonth %}
+
+                        {% if page.type != "year" %}
+                            <a class="archive-month-active" href="/archive">{{ post.date | date: "%b" }}</a>
+                        {% else %}
+                            <a class="archive-month" href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
+                        {% endif %}
+
                     {% else %}
-                        <li><a href="/archive/{{ postYear }}">{{ postYear }}</a></li>
+                        <a class="archive-month" href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
                     {% endif %}
 
-                    {% assign stashYear = postYear %}
+                    {% assign stashMonth = postMonth %}
                 {% endif %}
             {% endif %}
         {% endfor %}
 
-      </ul>
+    </nav>
 
-      <ul id="archive-months">
-
-          {% if page.type == "year" %}
-              <li>All</li>
-          {% else %}
-              <li><a href="/archive/{{ pageYear }}">All</a></li>
-          {% endif %}
-
-          {% for post in site.posts %}
-              {% assign postYear = post.date | date: "%Y" %}
-              {% assign postMonth = post.date | date: "%m" %}
-
-              {% if postYear == pageYear %}
-                  {% if postMonth != stashMonth %}
-                      {% if postMonth == pageMonth %}
-                          {% if page.type != "year" %}
-                              <li>{{ post.date | date: "%b" }}</li>
-                          {% else %}
-                              <li><a href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a></li>
-                          {% endif %}
-                      {% else %}
-                          <li><a href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a></li>
-                      {% endif %}
-
-                      {% assign stashMonth = postMonth %}
-                  {% endif %}
-              {% endif %}
-          {% endfor %}
-
-      </ul>
-
-    </dd></dl></div>
-
-  </body>
-</html>
+{% endif %}
