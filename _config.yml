@@ -27,21 +27,15 @@ jekyll-archives:
   enabled:
     - year
     - month
-    - day
     - tags
-    - categories
   layouts:
     year: 'archive-year'
     month: 'archive-month'
-    day: 'archive-day'
     tag: 'archive-tag-and-category'
-    category: 'archive-tag-and-category'
   permalinks:
     year: '/archive/:year/'
     month: '/archive/:year/:month/'
-    day: '/archive/:year/:month/:day/'
     tag: '/archive/tag/:name/'
-    category: '/archive/category/:name/'
 
 gems:
   - jekyll-archives
