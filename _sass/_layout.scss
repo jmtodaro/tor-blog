@@ -19,7 +19,7 @@
     height: 85px;
     width: 153px;
     text-indent: -9999px;
-    background: url(../assets/images/tor-logo.png) no-repeat 0px 0px;
+    background: url(../images/tor-logo.png) no-repeat 0px 0px;
     margin-top: -8px;
     margin-bottom: 8px;
 
@@ -307,7 +307,7 @@ pre, code {
     margin-bottom: 0px;
 
     &:before {
-      	content: url(../assets/images/node-circle.png);
+      	content: url(../images/node-circle.png);
       	margin-left: -75px;
       	margin-right: 10px;
       	position: relative;
