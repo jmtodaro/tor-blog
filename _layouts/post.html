@@ -1,109 +1,86 @@
 ---
-layout: default
+layout: page
 ---
 
-<!-- Pages with side column need a 'maincol' class -->
-<div class="post maincol">
-
-  <header class="post-header">
+<header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+</header>
 
-  <article class="post-content">
+<article class="post-content">
     {{ content }}
-  </article>
+</article>
 
-  <div class="post-footer">
-      <a class="post-blog" href="{{ post.author | prepend: site.baseurl }}">{{ page.author }}'s Blog</a>
-  </div>
-  <br />
+<div class="post-footer">
+    <a class="post-blog" href="{{ post.author | prepend: site.baseurl }}">{{ page.author }}'s Blog</a>
+</div>
+<br />
 
 <!-- COMMENTS -->
 
-<!--  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'jmttest'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
--->
-
 {% if page.comments != "disabled" %}
-<div id="comments" class="comments clearfix">
-  <div class="comments-loading">
-  <p><em>Enable Javascript to view comments</em></p>
-  </div>
-</div>
 
-<script type="text/javascript" class="juvia">
-(function() {
-    var loadingSection = document.body.querySelector('.comments-loading');
-    var icon = '<p>Comments Loading...</p><img alt="loading comments" src="/assets/images/comments-loading.gif">';
+    <div id="comments" class="comments clearfix">
+        <div class="comments-loading">
+            <p><em>Enable Javascript to view comments</em></p>
+        </div>
+    </div>
 
-    loadingSection.innerHTML = loadingSection.innerHTML + icon;
+    <script type="text/javascript" class="juvia">
+    (function() {
+        var loadingSection = document.body.querySelector('.comments-loading');
+        var icon = '<p>Comments Loading...</p><img alt="loading comments" src="/assets/images/comments-loading.gif">';
 
-    var options = {
-        container    : '.comments',
-//        site_key     : 'im3x57usjcg72fkm6lyqzwzt7vaoi4g', // eschafer
-//        site_key     : '44vvejwwbxje75ke0zv308dpvsf8pvl', // mysql
-        site_key     : '82v01xe0yatfihjbfuebl0c9g876ee5', // postgres
-        topic_key    : '/{{ page.permalink }}',
-        topic_url    : location.href,
-        topic_title  : document.title || location.href,
-        include_base : !window.Juvia,
-        include_css  : !window.Juvia,
-        comment_order: 'latest-first'
-    };
+        loadingSection.innerHTML = loadingSection.innerHTML + icon;
 
-    function makeQueryString(options) {
-        var key, params = [];
-        for (key in options) {
-            params.push(
-                encodeURIComponent(key) +
-                '=' +
-                encodeURIComponent(options[key]));
-        }
-        return params.join('&');
-    }
+        var options = {
+            container    : '.comments',
+            site_key     : '82v01xe0yatfihjbfuebl0c9g876ee5', // postgres
+            topic_key    : '/{{ page.permalink }}',
+            topic_url    : location.href,
+            topic_title  : document.title || location.href,
+            include_base : !window.Juvia,
+            include_css  : !window.Juvia,
+            comment_order: 'latest-first'
+        };
 
-    function makeApiUrl(options) {
-        // Makes sure that each call generates a unique URL, otherwise
-        // the browser may not actually perform the request.
-        if (!('_juviaRequestCounter' in window)) {
-            window._juviaRequestCounter = 0;
+        function makeQueryString(options) {
+            var key, params = [];
+            for (key in options) {
+                params.push(
+                    encodeURIComponent(key) +
+                    '=' +
+                    encodeURIComponent(options[key]));
+            }
+            return params.join('&');
         }
 
-        var result =
-//            'http://torblog-juvia-4525.herokuapp.com/api/show_topic.js' +
-            'http://aqueous-plains-8472.herokuapp.com/api/show_topic.js' +
-//            'http://juvia.torblog.lan/api/show_topic.js' +
-	    '?_c=' + window._juviaRequestCounter +
-            '&' + makeQueryString(options);
-        window._juviaRequestCounter++;
-        return result;
-    }
+        function makeApiUrl(options) {
+            // Makes sure that each call generates a unique URL, otherwise
+            // the browser may not actually perform the request.
+            if (!('_juviaRequestCounter' in window)) {
+                window._juviaRequestCounter = 0;
+            }
 
-    var s       = document.createElement('script');
-    s.async     = true;
-    s.type      = 'text/javascript';
-    s.className = 'juvia';
-    s.src       = makeApiUrl(options);
+            var result =
+                'http://aqueous-plains-8472.herokuapp.com/api/show_topic.js' +
+                // 'http://juvia.torblog.lan/api/show_topic.js' +
+    	    '?_c=' + window._juviaRequestCounter +
+                '&' + makeQueryString(options);
+            window._juviaRequestCounter++;
+            return result;
+        }
 
-    (document.getElementsByTagName('head')[0] ||
-      document.getElementsByTagName('body')[0] && commentsLoaded).appendChild(s);
+        var s       = document.createElement('script');
+        s.async     = true;
+        s.type      = 'text/javascript';
+        s.className = 'juvia';
+        s.src       = makeApiUrl(options);
 
-})();
-</script>
+        (document.getElementsByTagName('head')[0] ||
+          document.getElementsByTagName('body')[0] && commentsLoaded).appendChild(s);
+
+    })();
+    </script>
+
 {% endif %}
-</div>
-
-<!-- Include the side column -->
-{% include sidecol.html %}

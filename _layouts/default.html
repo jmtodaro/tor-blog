@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+    {% include head.html %}
 
-  <body>
+    <body>
 
-    {% include header.html %}
+        {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+        <div class="page-content">
+              <div class="wrapper">
 
-    {% include footer.html %}
+                  {{ content }}
 
- <!--<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'jmttest2'; // required: replace example with your forum shortname
+              </div>
+        </div>
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script> -->
-    
+        {% include footer.html %}
+
   </body>
 
 </html>

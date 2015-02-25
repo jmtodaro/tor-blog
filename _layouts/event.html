@@ -1,26 +1,22 @@
 ---
-layout: default
+layout: page
 ---
 
-<!-- Pages with side column need a 'maincol' class -->
-<div class="post maincol">
-
-  <header class="post-header">
+<header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-          <p class="post-meta">
-              <span class="startdate" data-startdate="{{ page.startdate }}">{{ page.startdate | date: "%-d %B %Y" }}</span>
-              {% if page.enddate %}
+    <p class="post-meta">
+        <span class="startdate" data-startdate="{{ page.startdate }}">{{ page.startdate | date: "%-d %B %Y" }}</span>
+
+            {% if page.enddate %}
                 to <span class="enddate" data-enddate="{{ page.enddate }}">{{ page.enddate | date: "%-d %B %Y" }}</span>
-              {% endif %}
-          </p>
-  </header>
+            {% endif %}
 
-  <article class="post-content">
+    </p>
+</header>
+
+<article class="post-content">
+
     {{ content }}
-  </article>
 
-</div>
-
-<!-- Include the side column -->
-{% include sidecol.html %}
+</article>

@@ -2,20 +2,30 @@
 layout: page
 ---
 
-<div class="author">
-{% assign index = true %}
-  {% for post in site.posts %}
-    {% if post.author contains page.author %}
-      {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-      {% unless year == this_year %}
-        {% assign year = this_year %}
-        <h2>{{ year }}</h2>
-      {% endunless %}
-        <div class="author-post">
-          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <a class="author-post__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </div>
-    {% endif %}
-	{% endfor %}
-</div>
+<header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+</header>
 
+<div class="author">
+
+    {% assign index = true %}
+
+    {% for post in site.posts %}
+        {% if post.author contains page.author %}
+            {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+
+            {% unless year == this_year %}
+                {% assign year = this_year %}
+                <h2>{{ year }}</h2>
+            {% endunless %}
+
+            <div class="author-post">
+                <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <a class="author-post__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </div>
+
+        {% endif %}
+
+	  {% endfor %}
+
+</div>
