@@ -21,7 +21,19 @@ search_omit: true
                     in
 
                     {% for tag in post.tags %}
-                        <a class="post-category post-category-js" href="{{ site.baseurl }}/archives/tag/{{ tag | slugify }}">{{ tag }}</a>
+
+                    {% if tag == page.tags.last %}
+
+                    {% unless tag == page.tags[0] %}
+                    and
+                    {% endunless %}
+                    {% endif %}
+
+                    <a class="post-category post-category-js" href="{{ site.baseurl }}/archives/tag/{{ tag | slugify }}">{{ tag }}</a>
+
+                    {% unless tag == page.tags.last %}
+                    ,
+                    {% endunless %}
                     {% endfor %}
 
                 {% endunless %}
