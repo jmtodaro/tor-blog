@@ -19,11 +19,16 @@ search_omit: true
 
     <li>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a> in
+        <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a>
 
-            {% for tag in post.tags %}
-                <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
-            {% endfor %}
+            {% unless post.tags[0] == NULL %}
+                in
+
+                {% for tag in post.tags %}
+                    <a class="post-category post-category-js" href="{{ site.baseurl }}/archive/tag/{{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+
+            {% endunless %}
 
         </span>
 

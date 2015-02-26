@@ -13,7 +13,9 @@ The third alpha release of the 4.5 series is available from the [extended downlo
 
 **Note:** The individual bundles of the alpha series are signed by one of the subkeys of the Tor Browser Developers signing key from now on. You can find its fingerprint on the [Signing Keys](https://www.torproject.org/docs/signing-keys.html.en) page. It is:
 
-     pub   4096R/0x4E2C6E8793298290 2014-12-15       Key fingerprint = EF6E 286D DA85 EA2A 4BA7                         DE68 4E2C 6E87 9329 8290 
+    pub   4096R/0x4E2C6E8793298290 2014-12-15
+          Key fingerprint = EF6E 286D DA85 EA2A 4BA7
+                            DE68 4E2C 6E87 9329 8290
 
 Tor Browser 4.5a3 is based on Firefox ESR 31.4.0, which features [important security updates](https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html#firefoxesr31.4) to Firefox. Its updater now contains the code for verifying signed update files and does not accept unsigned ones anymore. Moreover, this release includes an updated Tor, 0.2.6.2-alpha, an updated meek, 0.15, which is now working again, and a bunch of additional improvements and bugfixes.
 

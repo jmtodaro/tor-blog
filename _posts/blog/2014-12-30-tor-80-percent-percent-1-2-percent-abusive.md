@@ -6,7 +6,6 @@ date: 2014-12-30 14:07:42
 author: nickm
 category: blog
 comments: open
-tags: [""]
 ---
 
 Hi, Nick here.

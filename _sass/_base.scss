@@ -123,12 +123,14 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: $grey-color-dark;
+    border-left: 4px solid $green;
+    padding: 10px;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    font-size: 14px;
+    letter-spacing: 0px;
     font-style: italic;
+    background-color: $green-light;
 
     > :last-child {
         margin-bottom: 0;

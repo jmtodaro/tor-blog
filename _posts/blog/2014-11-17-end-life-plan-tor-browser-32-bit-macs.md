@@ -6,7 +6,6 @@ date: 2014-11-17 19:18:41
 author: mikeperry
 category: blog
 comments: closed
-tags: [""]
 ---
 
 We are planning to discontinue support for 32 bit Macs for Tor Browser.
