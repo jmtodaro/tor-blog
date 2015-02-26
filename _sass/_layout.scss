@@ -668,67 +668,69 @@ pre, code {
 /**
 * Archive Navigation
 */
-.archive-years {
-    margin-left: 0px;
-    text-align: center;
-    margin-top: -5px;
-    line-height: auto;
-    background-color: $orange-light;
-
-    .archive-year, .archive-year-active {
-        font-size: $base-font-size;
-        font-weight: bold;
-        background-color: transparent;
-        padding: 5px 0px;
-        display: inline-block;
-        text-align: center;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 5px;
-        }
-
-        &:hover, :active {
-            text-decoration: none;
-          }
-    }
-
-    .archive-year-active {
-      color: $grey-color;
-      text-decoration: none;
-    }
-}
-
-.archive-months {
-    margin-left: 0px;
-    text-align: center;
+.archives {
     margin-bottom: 15px;
-    line-height: auto;
-    background-color: #FFFAF2;
 
-    .archive-month, .archive-month-active {
-        font-size: $base-font-size;
-        background-color: transparent;
-        padding: 5px 0px;
-        display: inline-block;
+    .archive-years {
+        margin-left: 0px;
         text-align: center;
+        margin-top: -5px;
+        line-height: auto;
+        background-color: $orange-light;
 
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-          margin-left: 5px;
+        .archive-year, .archive-year-active {
+            font-size: $base-font-size;
+            font-weight: bold;
+            background-color: transparent;
+            padding: 5px 0px;
+            display: inline-block;
+            text-align: center;
+
+            // Gaps between nav items, but not on the first one
+            &:not(:first-child) {
+                margin-left: 5px;
+            }
+
+            &:hover, :active {
+                text-decoration: none;
+              }
         }
 
-        &:hover, :active {
+        .archive-year-active {
+          color: $grey-color;
           text-decoration: none;
         }
     }
 
-    .archive-month-active {
-        color: $grey-color;
-        text-decoration: none;
+    .archive-months {
+        margin-left: 0px;
+        text-align: center;
+        line-height: auto;
+        background-color: #FFFAF2;
+
+        .archive-month, .archive-month-active {
+            font-size: $base-font-size;
+            background-color: transparent;
+            padding: 5px 0px;
+            display: inline-block;
+            text-align: center;
+
+            // Gaps between nav items, but not on the first one
+            &:not(:first-child) {
+              margin-left: 5px;
+            }
+
+            &:hover, :active {
+              text-decoration: none;
+            }
+        }
+
+        .archive-month-active {
+            color: $grey-color;
+            text-decoration: none;
+        }
     }
 }
-
 
 /**
  * Comments

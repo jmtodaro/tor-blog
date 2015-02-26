@@ -16,7 +16,8 @@ search_omit: true
 
     {% if month != nmonth %}
         {% if forloop.index != 1 %}</ul>{% endif %}
-        <h2 style="text-align: center; font-size: 32px; margin-top: 15px; color: #a3c941; font-weight: normal;">{{ post.date | date: '%B %Y' }}</h2><ul class="post-content">
+        {% comment %}<h2 style="text-align: center; font-size: 32px; margin-top: 15px; color: #a3c941; font-weight: normal;">{{ post.date | date: '%B %Y' }}</h2>{% endcomment %}
+        <ul class="post-content">
     {% endif %}
 
     <li>
