@@ -30,7 +30,7 @@ search_omit: true
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-      defaultDate: moment().format('YYYY-M-D'),
+      defaultDate: moment(),
       editable: false,
       eventLimit: true, // allow "more" link when too many events
       events: eventList
@@ -51,11 +51,11 @@ search_omit: true
                 <li class="event">
                 <header class="post-header">
                     <h2 class="eventtitle"> <a class="post-link titleurl" href="{{ post.url }}">{{ post.title | xml_escape }}</a></h2>
-                    <p class="post-meta">
-                        <span class="startdate" data-startdate="{{ post.startdate }}">{{ post.startdate | date: "%-d %B %Y" }}</span>
+                    <p class="post-date">
+                      <span class="startdate" data-startdate="{{ post.startdate }}">Starts: {{ post.startdate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
 
                         {% if post.enddate %}
-                            to <span class="enddate" data-enddate="{{ post.enddate }}">{{ post.enddate | date: "%-d %B %Y" }}</span>
+                            <br /> <span class="enddate" data-enddate="{{ post.enddate }}">Ends: {{ post.enddate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
                         {% endif %}
 
                     </p>

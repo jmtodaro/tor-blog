@@ -5,6 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Tor community recent news and updates
 baseurl: ""
 url: "http://torblog.lan"
+timezone: universal
 twitter_username: jekyllrb
 github_username:  jekyll
 
