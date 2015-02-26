@@ -622,56 +622,48 @@ pre, code {
 * Archive Navigation
 */
 .archive-years {
-    line-height: $base-line-height * 1.75;
     margin-left: 0px;
     text-align: center;
 
     .archive-year, .archive-year-active {
         font-size: $base-font-size;
         font-weight: bold;
-        color: $nav-text;
-        line-height: $base-line-height;
-        background-color: $nav-button;
+        background-color: transparent;
         padding: 5px 0px;
-        width: 45px;
         display: inline-block;
         text-align: center;
-        text-decoration:none;
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
-            margin-left: 0px;
+            margin-left: 5px;
         }
 
         &:hover, :active {
-            background-color: $nav-toggle;
             text-decoration: none;
         }
     }
 
     .archive-year-active {
-        background-color: $nav-toggle;
+      color: $grey-color;
+      text-decoration: none;
     }
 }
 
 .archive-months {
-    line-height: $base-line-height * 1.75;
     margin-left: 0px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     .archive-month, .archive-month-active {
         font-size: $base-font-size;
-        line-height: $base-line-height;
         background-color: transparent;
         padding: 5px 0px;
-        width: 30px;
         display: inline-block;
         text-align: center;
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
-          margin-left: 0px;
+          margin-left: 5px;
         }
 
         &:hover, :active {
