@@ -4,8 +4,19 @@ layout: page
 
 <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-</header>
+    <span class="post-meta">Posted {{ page.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ page.author }}">{{ page.author }}</a>
+
+        {% unless page.tags[0] == NULL %}
+            in
+
+            {% for tag in page.tags %}
+                <a class="post-category post-category-js" href="{{ site.baseurl }}/archives/tag/{{ tag | slugify }}">{{ tag }}</a>
+            {% endfor %}
+
+        {% endunless %}
+
+    </span>
+  </header>
 
 <article class="post-content">
     {{ content }}
