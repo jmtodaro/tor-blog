@@ -6,12 +6,14 @@ search_omit: true
 
   <h2>Search</h2>
 
+{% comment %}
   <!-- Search form -->
-  <form method="get" action="/search" data-search-form>
+  <form method="get" action="{{ site.baseurl }}/search" data-search-form>
       <label for="q">Search term</label>
       <input type="search" name="q" id="q" placeholder="Enter search term" data-search-input />
       <input type="submit" value="Search" />
   </form>
+{% endcomment %}
 
   <!-- Search results placeholder -->
   <p data-search-found>
@@ -33,6 +35,3 @@ search_omit: true
 
   <!-- jQuery - required but can be moved to the <head> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  
-  <!-- Search script - Must appear after template -->
-  <script src="{{ site.baseurl }}/js/search.js"></script>
