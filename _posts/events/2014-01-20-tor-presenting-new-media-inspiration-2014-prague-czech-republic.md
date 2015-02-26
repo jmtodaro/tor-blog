@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Tor Presenting @ New Media Inspiration 2014, Prague, Czech Republic"
-permalink: events/tor-presenting-new-media-inspiration-2014-prague-czech-republic
+permalink: tor-presenting-new-media-inspiration-2014-prague-czech-republic
 date: 2014-01-20 09:58:28
-startdate: 2014-02-08 05:00:00
-enddate: 2014-02-08 05:59:00
+startdate: 2014-02-08 05:00
+enddate: 2014-02-08 05:59
 author: kelley
 category: event
 ---

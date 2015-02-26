@@ -6,11 +6,11 @@ layout: page
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • <a class="post-author" href="{{ site.baseurl }}/authors/{{ page.author }}">{{ page.author }}</a>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
     <p class="post-date">
-        <span class="startdate" data-startdate="{{ page.startdate }}">Starts: {{ page.startdate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
+        <span class="startdate" data-startdate="{{ page.startdate }}">Starts: {{ page.startdate | date: "<b>%A %b %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
 
             {% if page.enddate %}
                 <br />
-                <span class="enddate" data-enddate="{{ page.enddate }}">Ends: {{ page.enddate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
+                <span class="enddate" data-enddate="{{ page.enddate }}">Ends: {{ page.enddate | date: "<b>%A %b %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
             {% endif %}
 
     </p>

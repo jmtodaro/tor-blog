@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Researchers & Practitioners Meetup @ PETS, Amsterdam"
-permalink: events/researchers-practitioners-meetup-pets-amsterdam
+permalink: researchers-practitioners-meetup-pets-amsterdam
 date: 2014-06-25 04:49:51
-startdate: 2014-07-15 09:00:00
-enddate: 2014-07-15 09:00:00
+startdate: 2014-07-15 09:00
+enddate: 
 author: moritz
 category: event
 ---

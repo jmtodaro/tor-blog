@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Karen and Kelley @ SXSW, Austin, TX"
-permalink: events/karen-and-kelley-sxsw-austin-tx
+permalink: karen-and-kelley-sxsw-austin-tx
 date: 2014-02-25 13:41:36
-startdate: 2014-03-07 08:00:00
-enddate: 2014-03-11 08:59:00
+startdate: 2014-03-07 08:00
+enddate: 2014-03-11 08:59
 author: kelley
 category: event
 ---

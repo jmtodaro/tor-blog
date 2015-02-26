@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Tor @ LibrePlanet 2014, MIT, Cambridge, MA"
-permalink: events/tor-libreplanet-2014-mit-cambridge-ma
+permalink: tor-libreplanet-2014-mit-cambridge-ma
 date: 2014-02-10 09:19:55
-startdate: 2014-03-22 04:00:00
-enddate: 2014-03-23 04:59:00
+startdate: 2014-03-22 04:00
+enddate: 2014-03-23 04:59
 author: kelley
 category: event
 ---

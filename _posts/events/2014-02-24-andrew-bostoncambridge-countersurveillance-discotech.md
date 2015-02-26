@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Andrew at Boston/Cambridge Countersurveillance DiscoTech"
-permalink: events/andrew-bostoncambridge-countersurveillance-discotech
+permalink: andrew-bostoncambridge-countersurveillance-discotech
 date: 2014-02-24 22:27:12
-startdate: 2014-03-01 10:00:00
-enddate: 2014-03-02 18:00:00
+startdate: 2014-03-01 10:00
+enddate: 2014-03-02 18:00
 author: phobos
 category: event
 ---

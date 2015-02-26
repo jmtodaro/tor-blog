@@ -51,11 +51,12 @@ search_omit: true
                 <li class="event">
                 <header class="post-header">
                     <h2 class="eventtitle"> <a class="post-link titleurl" href="{{ post.url }}">{{ post.title | xml_escape }}</a></h2>
+                    <br />
                     <p class="post-date">
-                      <span class="startdate" data-startdate="{{ post.startdate }}">Starts: {{ post.startdate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
+                      <span class="startdate" data-startdate="{{ post.startdate }}">Starts: {{ post.startdate | date: "<b>%A %b %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
 
                         {% if post.enddate %}
-                            <br /> <span class="enddate" data-enddate="{{ post.enddate }}">Ends: {{ post.enddate | date: "<b>%A %B %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
+                            <br /> <span class="enddate" data-enddate="{{ post.enddate }}">Ends: {{ post.enddate | date: "<b>%A %b %-d, %Y</b> at <b>%-I:%M %P</b>" }}</span>
                         {% endif %}
 
                     </p>

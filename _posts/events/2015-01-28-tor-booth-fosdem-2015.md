@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Tor booth at FOSDEM 2015"
-permalink: events/tor-booth-fosdem-2015
+permalink: tor-booth-fosdem-2015
 date: 2015-01-28 08:19:41
-startdate: 2015-01-31 03:00:00
-enddate: 2015-02-01 03:59:00
+startdate: 2015-01-31 03:00
+enddate: 2015-02-01 03:59
 author: lunar
 category: event
 ---

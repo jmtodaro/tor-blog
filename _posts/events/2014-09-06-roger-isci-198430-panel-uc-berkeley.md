@@ -1,10 +1,10 @@
 ---
 layout: event
 title: "Roger @ ISCI “1984+30” panel, UC Berkeley"
-permalink: events/roger-isci-“198430”-panel-uc-berkeley
+permalink: roger-isci-198430-panel-uc-berkeley
 date: 2014-09-06 02:59:10
-startdate: 2014-10-06 08:30:00
-enddate: 2014-10-06 14:00:00
+startdate: 2014-10-06 08:30
+enddate: 2014-10-06 14:00
 author: lunar
 category: event
 ---
