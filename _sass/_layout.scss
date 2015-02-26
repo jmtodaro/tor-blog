@@ -661,6 +661,9 @@ pre, code {
 .archive-years {
     margin-left: 0px;
     text-align: center;
+    margin-top: -5px;
+    line-height: auto;
+    background-color: $orange-light;
 
     .archive-year, .archive-year-active {
         font-size: $base-font-size;
@@ -677,7 +680,7 @@ pre, code {
 
         &:hover, :active {
             text-decoration: none;
-        }
+          }
     }
 
     .archive-year-active {
@@ -690,6 +693,8 @@ pre, code {
     margin-left: 0px;
     text-align: center;
     margin-bottom: 15px;
+    line-height: auto;
+    background-color: #FFFAF2;
 
     .archive-month, .archive-month-active {
         font-size: $base-font-size;

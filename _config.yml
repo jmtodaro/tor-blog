@@ -22,7 +22,7 @@ sass:
   style: :compressed
 
 jekyll-archives:
-  layout: 'archive'
+  layout: 'archive-tag-and-category'
   enabled:
     - year
     - month
@@ -32,9 +32,9 @@ jekyll-archives:
     month: 'archive-month'
     tag: 'archive-tag-and-category'
   permalinks:
-    year: '/archive/:year/'
-    month: '/archive/:year/:month/'
-    tag: '/archive/tag/:name/'
+    year: '/archives/:year/'
+    month: '/archives/:year/:month/'
+    tag: '/archives/tag/:name/'
 
 gems:
   - jekyll-archives

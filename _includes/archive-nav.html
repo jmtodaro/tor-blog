@@ -1,9 +1,9 @@
 <nav class="archive-years">
 
     {% if page.type %}
-        <a class="archive-year" href="/archive">All</a>
+        <a class="archive-year" href="/archives">All</a>
     {% else %}
-        <a class="archive-year-active" href="/archive">All</a>
+        <a class="archive-year-active" href="/archives">All</a>
     {% endif %}
 
     {% assign pageYear = page.date | date: "%Y" %}
@@ -19,9 +19,9 @@
             {% if postYear != stashYear %}
 
                 {% if postYear == pageYear %}
-                    <a class="archive-year-active" href="/archive">{{ postYear }}</a>
+                    <a class="archive-year-active" href="/archives">{{ postYear }}</a>
                 {% else %}
-                    <a class="archive-year" href="/archive/{{ postYear }}">{{ postYear }}</a>
+                    <a class="archive-year" href="/archives/{{ postYear }}">{{ postYear }}</a>
                 {% endif %}
 
                 {% assign stashYear = postYear %}
@@ -36,9 +36,9 @@
     <nav class="archive-months">
 
         {% if page.type == "year" %}
-            <a class="archive-month-active"  href="/archive">All</a>
+            <a class="archive-month-active"  href="/archives">All</a>
         {% else %}
-            <a class="archive-month" href="/archive/{{ pageYear }}">All</a>
+            <a class="archive-month" href="/archives/{{ pageYear }}">All</a>
         {% endif %}
 
         {% for post in site.posts reversed %}
@@ -50,13 +50,13 @@
                     {% if postMonth == pageMonth %}
 
                         {% if page.type != "year" %}
-                            <a class="archive-month-active" href="/archive">{{ post.date | date: "%b" }}</a>
+                            <a class="archive-month-active" href="/archives">{{ post.date | date: "%b" }}</a>
                         {% else %}
-                            <a class="archive-month" href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
+                            <a class="archive-month" href="/archives/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
                         {% endif %}
 
                     {% else %}
-                        <a class="archive-month" href="/archive/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
+                        <a class="archive-month" href="/archives/{{ postYear }}/{{ postMonth }}">{{ post.date | date: "%b" }}</a>
                     {% endif %}
 
                     {% assign stashMonth = postMonth %}

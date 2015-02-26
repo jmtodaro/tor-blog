@@ -25,7 +25,7 @@
 
 <!-- RECENT BLOG POSTS -->
     <div class ="sidebox greenbox">
-      	<h2><a style="text-decoration: none;" href="{{site.baseurl}}/archive">Recent Blog Posts</a></h2>
+      	<h2><a style="text-decoration: none;" href="{{ site.baseurl }}/archives/{{ site.time | date: "%Y" }}">Recent Blog Posts</a></h2>
       	<ul>
 
         	  {% for post in site.categories.blog limit:10 %}
@@ -33,7 +33,7 @@
         	  {% endfor %}
 
       	</ul>
-      	<span><a href="{{site.baseurl}}/archive">more &raquo;</a></span>
+      	<span><a href="{{site.baseurl}}/archives">more &raquo;</a></span>
     </div>
 
 <!-- TAG CLOUD -->
@@ -45,7 +45,7 @@
                 <!-- this is wack - be careful adjusting these values -->
                 <li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 55 }}%">
                 <!--    <li style="font-size: {{ tag | last | size | times: 400 | divided_by: site.tags.size | plus: 75 }}%"> -->
-                    <span><a href="{{site.baseurl}}/archive/tag/{{ tag | first | slugify }}/">
+                    <span><a href="{{site.baseurl}}/archives/tag/{{ tag | first | slugify }}/">
                         {{ tag | first }}
                     </a></span>
                 </li>
