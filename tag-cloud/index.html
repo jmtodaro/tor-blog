@@ -6,9 +6,12 @@ layout: page
 <div class="tagbox">
     <ul>
 
-        {% for tag in site.tags %}
+      {% comment %}
+          <!-- Careful adjusting these values... -->
+      {% endcomment %}
 
-      	    <!-- this is wack - be careful adjusting these values -->
+      {% for tag in site.tags %}
+
       	    <li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 40 }}%">
       		      <span><a href="{{site.baseurl}}/archives/tag/{{ tag | first | slugify }}/">
 
