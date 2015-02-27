@@ -3,7 +3,7 @@
 <!-- RSS FEED / SEARCH -->
     <div class="sidefirst">
       	<a href="{{ "/feed.xml" | prepend: site.baseurl }}"><img src="{{site.baseurl}}/images/rss.png" alt="RSS logo">RSS</a>
-      	<!-- <a href="#"><img src="{{site.baseurl}}/img/rss.png">Atom</a> -->
+        <!-- For atom feed --><!-- <a href="#"><img src="{{site.baseurl}}/images/rss.png" alt="Atom RSS logo">Atom</a> -->
       	<form method="get" action="{{ site.baseurl }}/search" data-search-form>
         	  <input class="searchtext" type="search" size="12" name="q" id="q" placeholder="Search..." data-search-input />
         	  <input class="searchbutton" type="submit" value="Search" />
@@ -41,10 +41,13 @@
       	<h2><a style="text-decoration: none;" href="{{site.baseurl}}/tag-cloud">Blog Tag Cloud</a></h2>
       	<ul>
 
-            {% for tag in site.tags limit: 25 %}
-                <!-- this is wack - be careful adjusting these values -->
-                <li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 55 }}%">
-                <!--    <li style="font-size: {{ tag | last | size | times: 400 | divided_by: site.tags.size | plus: 75 }}%"> -->
+{% comment %}
+    <!-- Careful adjusting these values... -->
+{% endcomment %}
+
+          {% for tag in site.tags limit: 25 %}
+                <!--<li style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus: 55 }}%"> --><!-- For all posts -->
+                <li style="font-size: {{ tag | last | size | times: 400 | divided_by: site.tags.size | plus: 75 }}%"><!-- For reduced posts -->
                     <span><a href="{{site.baseurl}}/archives/tag/{{ tag | first | slugify }}/">
                         {{ tag | first }}
                     </a></span>
@@ -57,6 +60,3 @@
 </div>
 
 <div style="clear: both;"></div>
-
-<!-- Search script - Must appear after template -->
-<script src="{{ site.baseurl }}/js/search.js"></script>
