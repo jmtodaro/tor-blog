@@ -1,0 +1,20 @@
+<span class="post-meta">Posted {{ page.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ page.author }}">{{ page.author }}</a>
+
+  {% unless page.tags[0] == NULL %}
+  in
+
+  {% for tag in page.tags %}
+
+  {% if tag == page.tags.last %}
+  {% unless tag == page.tags[0] %} and {% endunless %}
+  {% endif %}
+
+  {% unless tag == page.tags.last or tag == page.tags.first %},{% endunless %}
+
+  <a class="post-category post-category-js" href="{{ site.baseurl }}/archives/tag/{{ tag | slugify }}">{{ tag }}</a>
+
+  {% endfor %}
+
+  {% endunless %}
+
+</span>

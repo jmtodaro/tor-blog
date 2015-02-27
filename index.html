@@ -11,24 +11,10 @@ search_omit: true
 	         <h2>
 	             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
            </h2>
-           <span class="post-meta">Posted {{ post.date | date: "%b %-d, %Y" }} by <a class="post-author" href="{{ site.baseurl }}/authors/{{ post.author }}">{{ post.author }}</a>
 
-              {% unless post.tags[0] == NULL %}
-                  in
+           <!-- Include post meta content -->
+           {% include meta-post.html %}
 
-                  {% for tag in post.tags %}
-
-                       {% if tag == post.tags.last %}
-                          {% unless tag == post.tags[0] %} and {% endunless %}
-                       {% endif %}
-
-                        <a class="post-category post-category-js" href="{{ site.baseurl }}/archives/tag/{{ tag | slugify }}">{{ tag }}</a>{% unless tag == post.tags.last %},{% endunless %}
-
-                  {% endfor %}
-
-              {% endunless %}
-
-           </span>
            <div class="post-description">
 
                {% assign excerptCheck = post.content | split: '<!-- more -->' %}
