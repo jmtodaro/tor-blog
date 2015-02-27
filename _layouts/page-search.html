@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<!-- Pages with side column need a 'maincol' class -->
+<div class="maincol">
+
+    {{ content }}
+
+</div>
+
+<!-- Include the side column -->
+{% include sidecol.html %}
+
+<!-- jQuery - required but can be moved to the <head> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Search script - Must appear after template -->
+<script src="{{ site.baseurl }}/js/search.js"></script>
