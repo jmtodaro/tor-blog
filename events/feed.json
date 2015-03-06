@@ -8,7 +8,7 @@ category: event
     {% if post.title != null and post.title != empty and post.search_omit != true %}
         {% if forloop.index > 1 %},{%endif%}{
             "title": {{post.title | json}},
-            "link": "{{ site.baseurl }}{{ page.category }}{{ post.url }}",
+            "link": "{{ site.baseurl }}{{ post.url }}",
             "start_date": {{ post.startdate | json }},
             "end_date": {{ post.enddate | json }}
         }
