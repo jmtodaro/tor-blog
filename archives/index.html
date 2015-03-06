@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Archives
+category: blog
 search_omit: true
 ---
 
@@ -9,14 +10,13 @@ search_omit: true
 <!-- Include archive navigation -->
 {% include archive-nav.html %}
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 
     {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
     {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
 
     {% if month != nmonth %}
         {% if forloop.index != 1 %}</ul>{% endif %}
-        {% comment %}<h2 style="text-align: center; font-size: 32px; margin-top: 15px; color: #a3c941; font-weight: normal;">{{ post.date | date: '%B %Y' }}</h2>{% endcomment %}
         <ul class="post-content">
     {% endif %}
 
@@ -26,9 +26,75 @@ search_omit: true
         <!-- Include post meta content -->
         {% include meta-post.html %}
 
-        {{ post.excerpt }}
+        {{ post.content }}
 
         <a class="read-more" href="{{ post.url }}">Read more &raquo;</a>
     </li>
 
 {% endfor %}
+
+    <!-- Pagination links -->
+    {% if paginator.total_pages > 1 %}
+
+        <div class="pagination">
+            <a href="{{ '/archives/' | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Newest</a>
+            &nbsp;
+
+            {% if paginator.previous_page %}
+    	           <a href="/archives{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+            {% else %}
+    	           <span>&laquo; Prev</span>
+            {% endif %}
+
+            &nbsp;
+
+            <!-- Pagination vars -->
+            {% assign pageLimit = 11 %}
+            {% assign pageOffset = 5 %}
+            {% assign lastPage = paginator.total_pages | minus: pageLimit %}
+
+            {% if paginator.total_pages <= pageLimit %}
+                {% assign pageOffsetLimit = 1 %}
+
+            {% elsif paginator.page == 1 %}
+            	  {% assign pageOffsetLimit = paginator.page %}
+
+            {% elsif paginator.page <= pageOffset %}
+            	  {% assign firstPageLimit = paginator.page | minus: 1 %}
+            	  {% assign pageOffsetLimit = paginator.page | minus: firstPageLimit %}
+
+            {% elsif paginator.page > lastPage %}
+            	  {% assign lastPageLimit = paginator.total_pages | minus: pageLimit %}
+            	  {% assign pageOffsetLimit = lastPageLimit | plus: 1 %}
+
+            {% else %}
+            	  {% assign pageOffsetLimit = paginator.page | minus: pageOffset %}
+            {% endif %}
+
+            {% for page in (pageOffsetLimit..paginator.total_pages) limit: pageLimit %}
+
+              	{% if page == paginator.page %}
+              	   {{ page }}
+
+              	{% elsif page == 1 %}
+              	   <a href="{{ '/archives/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+
+              	{% else %}
+              	   <a href="/archives/{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+              	{% endif %}
+
+            {% endfor %}
+
+            &nbsp;
+
+            {% if paginator.next_page %}
+    	           <a href="/archives{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+            {% else %}
+    	           <span>Next &raquo;</span>
+            {% endif %}
+
+            &nbsp;
+            <a href="/archives/{{ site.paginate_path  | replace: '//', '/' | replace: ':num', paginator.total_pages }}">Oldest &raquo;</a>
+        </div>
+
+    {% endif %}
