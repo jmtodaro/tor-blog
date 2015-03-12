@@ -5,7 +5,7 @@ permalink: some-statistics-about-onions
 date: 2015-02-26 16:00:57
 author: asn
 category: blog
-comments: disabled
+comments: open
 tags: ["hidden services", "onions", "statistics"]
 ---
 
