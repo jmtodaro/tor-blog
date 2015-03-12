@@ -68,7 +68,7 @@ strand raised a question about the code regarding [rendezvous and introduction p
 This week in Tor history
 ========================
 
-[A year ago this week](https://lists.torproject.org/pipermail/tor-news/2013-December/000024.html), the Freedom of the Press Foundation launched its “Encryption Tools for Journalists” [crowdfunding campaign](https://freedom.press/bundle/encryption-tools-journalists), distributing the proceeds to five free software security projects, including the Tor Project and Tails. As of this writing, 1256 donors have contributed \$136,977.05 in support of journalists’ right to communicate with sources and carry out research without being subjected to invasive surveillance. Thanks to the FPF and to everyone who has donated so far!
+[A year ago this week](https://lists.torproject.org/pipermail/tor-news/2013-December/000024.html), the Freedom of the Press Foundation launched its “Encryption Tools for Journalists” [crowdfunding campaign](https://freedom.press/bundle/encryption-tools-journalists), distributing the proceeds to five free software security projects, including the Tor Project and Tails. As of this writing, 1256 donors have contributed $136,977.05 in support of journalists’ right to communicate with sources and carry out research without being subjected to invasive surveillance. Thanks to the FPF and to everyone who has donated so far!
 
 * * * * *
 

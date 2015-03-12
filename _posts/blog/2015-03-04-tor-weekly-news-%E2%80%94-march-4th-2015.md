@@ -20,10 +20,10 @@ Meanwhile, following on from the [recent Tor UX sprint](https://blog.torproject.
 
 Please see the announcements for full details of the changes, as well as instructions for download and verification.
 
-Reddit donates \$82,765.95 to The Tor Project, Inc.
+Reddit donates $82,765.95 to The Tor Project, Inc.
 ===================================================
 
-One year ago, the [online community Reddit announced](http://www.redditblog.com/2014/02/decimating-our-ads-revenue.html) that it would be donating 10% of its advertising revenue in 2014 to ten non-profits, to be selected by the Reddit community. Voting took place over the last week, and The Tor Project, Inc. placed tenth in the [final ranking](http://www.redditblog.com/2015/02/announcing-winners-of-reddit-donate.html), in good company with other charities like the Electronic Frontier Foundation, Wikimedia Foundation, and the Free Software Foundation, each of which being eligible for a \$82,765.95 donation.
+One year ago, the [online community Reddit announced](http://www.redditblog.com/2014/02/decimating-our-ads-revenue.html) that it would be donating 10% of its advertising revenue in 2014 to ten non-profits, to be selected by the Reddit community. Voting took place over the last week, and The Tor Project, Inc. placed tenth in the [final ranking](http://www.redditblog.com/2015/02/announcing-winners-of-reddit-donate.html), in good company with other charities like the Electronic Frontier Foundation, Wikimedia Foundation, and the Free Software Foundation, each of which being eligible for a $82,765.95 donation.
 
 Community donations like this are a big step on the way to solving the problem of overreliance on single funding streams — often from national governments — that affects open-source security projects, as [recently discussed by Jillian York](http://jilliancyork.com/2015/02/06/there-are-other-funding-options-than-the-usg/) of the Electronic Frontier Foundation (who came [first](https://twitter.com/reddit/status/571011860260098048) in Reddit’s donation drive). Many thanks to Reddit (the company) and Reddit (the community) for their magnificent gesture of support for privacy and anonymity online — and if you’d like to join them, please take a look at the [Tor Project website](https://www.torproject.org/donate/donate) for ways to contribute!
 
